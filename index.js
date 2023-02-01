@@ -1,3 +1,4 @@
+const  path= require('path');
 const express = require('express');
 const dotenv = require('dotenv').config();
 
@@ -12,3 +13,8 @@ app.use(express.urlencoded({extended:false}));
 
 app.use('/openai', require('./routes/openaiRoutes'));
 app.listen(port, () => console.log(`server with ${port}`));
+
+
+//set static folder...
+
+app.use(express.static(path.join(__dirname,'public')));
